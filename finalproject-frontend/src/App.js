@@ -7,6 +7,7 @@ import CreateAccount from "../containers/CreateAccount";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import Header from "./components/Header";
+import CreatePost from "./containersCreatePost";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -77,6 +78,13 @@ function App() {
             <Redirect to="/login" />
           ) : (
             <Home userAuthInfo={userAuthInfo} />
+          )}
+        </Route>
+        <Route exact path="/create-post">
+          {!loggedIn ? (
+            <Redirect to="/login" />
+          ) : (
+            <CreatePost userAuthInfo={userAuthInfo} />
           )}
         </Route>
       </Router>

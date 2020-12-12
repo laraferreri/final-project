@@ -1,19 +1,18 @@
 import React from "react";
 
-function Header({ loggedIn, LogoutFunction }) {
+function Header({ loggedIn, LogoutFunction, userAuthInfo }) {
   return (
     <header className="Header">
-      <nav>
-        {loggedIn ? (
-          <>
-            <a href="/">User Profile</a>
-            <a onClick={() => LogoutFunction()}> Logout </a>
-          </>
-        ) : (
-          <>
-            <a href="/Login">Login</a>
-            <a href="/CreateAccount">Create Account</a>
-          </>
+      <nav className="Header_nav">
+        {isLoggedIn && <a href="/">Home</a>}
+        {isLoggedIn && <a href={`/profile/${userAuthInfo.uid}`}>Profile</a>}
+        {isLoggedIn && <a href="/create-post">Create Post</a>}
+        {!isLoggedIn && <a href="/create-account">Create Account</a>}
+        {!isLoggedIn && <a href="/login">Login</a>}
+        {isLoggedIn && (
+          <a href="" onClick={() => LogoutFunction()}>
+            Logout
+          </a>
         )}
       </nav>
     </header>

@@ -1,5 +1,5 @@
 import React from "react";
-import CreateAccountForm from "../containers/CreateAccountForm";
+import CreateAccountForm from "./containers/CreateAccountForm";
 
 function CreateAccount({ CreateAccountFunction }) {
   return (

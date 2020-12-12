@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Redirect } from "react-router-dom";
 import firebase from "firebase/app";
 import "firebase/auth";
-import CreateAccount from "../containers/CreateAccount";
+import CreateAccount from "./containers/CreateAccount";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import Header from "./components/Header";
-import CreatePost from "./containersCreatePost";
+import CreatePost from "./containers/CreatePost";
+import UserProfile from "./containers/UserProfile";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -57,7 +58,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Header loggedIn={loggedIn} LogoutFunction={LogoutFunction} />
+      <Header
+        isLoggedIn={loggedIn}
+        LogoutFunction={LogoutFunction}
+        userAuthInfo={userAuthInfo}
+      />
       <Router>
         <Route exact path="/login">
           {!loggedIn ? (
@@ -86,6 +91,9 @@ function App() {
           ) : (
             <CreatePost userAuthInfo={userAuthInfo} />
           )}
+        </Route>
+        <Route exact path="/profile/:id">
+          {!loggedIn ? <Redirect to="/login" /> : <UserProfile />}
         </Route>
       </Router>
     </div>

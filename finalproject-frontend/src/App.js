@@ -1,11 +1,12 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Redirect } from "react-router-dom";
-import firebase from "friebase/app";
+import firebase from "firebase/app";
 import "firebase/auth";
 import CreateAccount from "../containers/CreateAccount";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
+import Header from "./components/Header";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -54,6 +55,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Header loggedIn={loggedIn} LogoutFunction={LogoutFunction} />
       <Router>
         <Route exact path="/login">

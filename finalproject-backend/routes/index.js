@@ -1,19 +1,23 @@
 const express = require("express");
 const router = express.Router();
+const artists = db.collection("artists");
 
-const sampleJSON = [
-  {
-    username: "laraferreri",
-    work: "example",
-    collaboration: "g",
-  },
-  {
-    username: "artlover123",
-    work: "yo",
-    collaboration: "whatever",
-  },
-];
+const firebase = require("firebase");
+const db = firebase.firestore();
 
-router.get("/", (req, res) => res.send(sampleJSON));
-
+router.get("/all-artists", (req, res) => {
+  const artistArray = [];
+  artists
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        artistArray.push(doc.data());
+      });
+      return res.send(artistArray);
+    })
+    .catch(function (error) {
+      console.log("Error", error);
+      return res.send(error);
+    });
+});
 module.exports = router;

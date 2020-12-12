@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import axios from "Axios";
+import axios from "axios";
+import artistInfo from "../components/artistInfo";
 
 function Home() {
-  const [sampleAPIData, setSampleAPIData] = useState([]);
+  const [artistAPIData, setArtistAPIData] = useState([]);
 
   useEffect(() => {
     axios
       .get("https://secure-mesa-42232.herokuapp.com/")
       .then(function (response) {
         if (response.data) {
-          setSampleAPIData(response.data);
+          setartistAPIData(response.data);
         }
       })
       .catch(function (error) {
@@ -17,17 +18,14 @@ function Home() {
       });
   }, []);
 
-  console.log({ sampleAPIData });
+  console.log({ artistAPIData });
+
   return (
     <div>
-      <h1> Hi </h1>;
-      {sampleAPIData.map((item, i) => {
-        <div key={i}>
-          <p>Username: {item.username}</p>
-          <p>work: {item.work}</p>
-          <p>collaboration: {item.collaboration}</p>
-        </div>;
-      })}
+      <h1> All Artist </h1>;
+      {artistAPIData.map((collaborationRequests, i) => (
+        <artistInfo artistData={collaborationRequests} key={i} />
+      ))}
     </div>
   );
 }

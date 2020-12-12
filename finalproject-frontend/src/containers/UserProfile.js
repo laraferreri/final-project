@@ -1,12 +1,12 @@
-import React from "react";
-import { useParams, useEffect } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import artistInfo from "../components/artistInfo";
 
 function UserProfile() {
   const [userProfileData, setUserProfileData] = useState({});
   const [userArtistData, setUserArtistAPIData] = useState([]);
   const { id } = useParams();
-  import artistInfo from "../components/artistInfo";
 
   useEffect(() => {
     axios

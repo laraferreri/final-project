@@ -18,3 +18,5 @@ router.get("/", (req, res) => {
       res.send("Failed Submission");
     });
 });
+
+module.exports = router;

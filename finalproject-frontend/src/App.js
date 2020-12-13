@@ -30,6 +30,11 @@ function App() {
     }
   }, [firebaseConfig]);
 
+  function LoginFunction(e) {
+    e.preventDefault();
+    const email = e.currentTarget.loginEmail.value;
+    const password = e.currentTarget.loginPassword.value;
+
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
@@ -53,11 +58,31 @@ function App() {
     });
   }, []);
 
+  function LogoutFunction() {
+    firebase
+      .auth()
+      .signOut()
+      .then(function () {
+        setLoggedIn(false);
+        setUserInformation({});
+      })
+      .catch(function (error) {
+        console.log("LOGOUT ERROR", error);
+      });
+  }
+
+
+  function CreateAccountFunction(e) {
+    e.preventDefault();
+    const email = e.currentTarget.createEmail.value;
+    const password = e.currentTarget.createPassword.value;
+  }
+
+
   if (loading) return null;
 
   return (
     <div className="App">
-      <Header />
       <Header
         isLoggedIn={loggedIn}
         LogoutFunction={LogoutFunction}
@@ -93,11 +118,9 @@ function App() {
           )}
         </Route>
         <Route exact path="/profile/:id">
-          {!loggedIn ? <Redirect to="/login" /> : <UserProfile />}
+          {!loggedIn ?( <Redirect to="/login" /> ) : (<UserProfile />)}
         </Route>
       </Router>
     </div>
   );
-}
-
 export default App;

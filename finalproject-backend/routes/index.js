@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const artists = db.collection("artists");
-
 const firebase = require("firebase");
 const db = firebase.firestore();
+const artists = db.collection("artists");
 
 router.get("/artists/:id", (req, res) => {
   const artistArray = [];

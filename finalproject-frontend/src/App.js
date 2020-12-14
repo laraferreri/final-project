@@ -30,17 +30,6 @@ function App() {
     }
   }, [firebaseConfig]);
 
-  // firebase
-  //   .auth()
-  //   .signInWithEmailAndPassword(email, password)
-  //   .then(function (response) {
-  //     console.log("LOGIN RESPONSE", response);
-  //     setLoggedIn(true);
-  //   })
-  //   .catch(function (error) {
-  //     console.log("LOGIN ERROR", error);
-  //   });
-
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
@@ -57,6 +46,16 @@ function App() {
     e.preventDefault();
     const email = e.currentTarget.loginEmail.value;
     const password = e.currentTarget.loginPassword.value;
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(function (response) {
+        console.log("LOGIN RESPONSE", response);
+        setLoggedIn(true);
+      })
+      .catch(function (error) {
+        console.log("LOGIN ERROR", error);
+      });
   }
 
   function LogoutFunction() {
@@ -75,18 +74,18 @@ function App() {
     e.preventDefault();
     const email = e.currentTarget.createEmail.value;
     const password = e.currentTarget.createPassword.value;
-  }
 
-  // firebase
-  //   .auth()
-  //   .createUserWithEmailAndPassword(email, password)
-  //   .then(function (response) {
-  //     console.log("VALID ACCOUNT CREATED FOR:", email, response);
-  //     setLoggedIn(true);
-  //   })
-  //   .catch(function (error) {
-  //     console.log("ACCOUNT CREATION FAILED", error);
-  //   });
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(function (response) {
+        console.log("VALID ACCOUNT CREATED FOR:", email, response);
+        setLoggedIn(true);
+      })
+      .catch(function (error) {
+        console.log("ACCOUNT CREATION FAILED", error);
+      });
+  }
 
   if (loading) return null;
 

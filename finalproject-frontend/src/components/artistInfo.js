@@ -1,3 +1,4 @@
+// similar to recipe card (21:56)
 import React from "react";
 
 function artistInfo({ artistData }) {

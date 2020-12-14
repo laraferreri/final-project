@@ -1,8 +1,8 @@
 import React from "react";
 
-function Header({ loggedIn, LogoutFunction, userAuthInfo }) {
+function Header({ isLoggedIn, LogoutFunction, userAuthInfo }) {
   return (
-    <header className="Header">
+    <header>
       <nav className="Header_nav">
         {isLoggedIn && <a href="/">Home</a>}
         {isLoggedIn && <a href={`/profile/${userAuthInfo.uid}`}>Profile</a>}

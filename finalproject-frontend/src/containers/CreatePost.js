@@ -9,12 +9,13 @@ function CreatePost({ userAuthInfo }) {
     const artistUserName = e.currentTarget.artistUserName;
     // const collaborationRequests = e.currentTarget.artistName;
 
-    Axios.get(
-      `http://localhost:400/create?artistName=${aristName}&artistUserName${artistUserName}&`
-    )
+    axios
+      .get(
+        `http://localhost:400/create?artistName=${artistName}&artistUserName${artistUserName}&`
+      )
       .then(function (response) {})
       .catch(function (error) {});
-    console.log("Error_Creating_Post", error);
+    // console.log("Error_Creating_Post", error);
   }
 
   return (

@@ -5,7 +5,7 @@ import artistInfo from "../components/artistInfo";
 
 function UserProfile() {
   const [userProfileData, setUserProfileData] = useState({});
-  const [userArtistData, setUserArtistAPIData] = useState([]);
+  const [userArtistAPIData, setUserArtistAPIData] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -20,13 +20,13 @@ function UserProfile() {
         console.log("error", error);
       });
   }, []);
-  console.log({ userArtist });
+  console.log({ userArtistAPIData });
 
   return (
     <div>
       <h1>User Profile</h1>
       <h2>{"name"} Posts </h2>
-      {userArtistData.map((artist, i) => (
+      {userArtistAPIData.map((artist, i) => (
         <artistInfo artistdata={artist} key={i} />
       ))}
     </div>

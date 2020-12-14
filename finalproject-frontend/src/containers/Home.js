@@ -10,7 +10,7 @@ function Home() {
       .get("https://secure-mesa-42232.herokuapp.com/")
       .then(function (response) {
         if (response.data) {
-          setartistAPIData(response.data);
+          setArtistAPIData(response.data);
         }
       })
       .catch(function (error) {

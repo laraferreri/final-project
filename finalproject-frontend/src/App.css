@@ -1,22 +1,25 @@
+* {
+  background-color: lightskyblue;
+  color: darkblue;
+}
+
 .App {
   padding: 0 30px;
 }
 
-.Header nav {
+.Header_nav {
   display: flex;
   justify-content: flex-end;
   max-width: 1040px;
   margin: 0 auto;
 }
 
-.Header nav a {
-  color: black;
+.Header_nav a {
+  color: darkblue;
   cursor: pointer;
-  font-size: 20pr;
+  font-size: 20pt;
   font-weight: bold;
-  display: block;
   margin: 10px;
-  text-decoration: underline;
 }
 
 .SignupForm {
@@ -29,4 +32,10 @@
   margin-bottom: 30px;
   max-width: 400px;
   width: 100%;
+}
+
+.box {
+  display: inline-block;
+  justify-content: center;
+  font-size: 15pt;
 }

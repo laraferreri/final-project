@@ -8,35 +8,38 @@ function CreatePost({ userAuthInfo }) {
     e.preventDefault();
     const artistName = e.currentTarget.artistName;
     const artistUserName = e.currentTarget.artistUserName;
-    // const collaborationRequests = e.currentTarget.artistName;
+    const artistID = userAuthInfo.uid;
 
     axios
       .get(
-        `http://localhost:400/create?artistName=${artistName}&artistUserName${artistUserName}&`
+        `http://localhost:400/create?artistName=${artistName}&artistId${userAuthInfo.uid}&`
       )
-      .then(function (response) {})
-      .catch(function (error) {});
-    // console.log("Error_Creating_Post", error);
+      .then(function (response) {
+        console.log({ SUCCESS: response });
+      })
+      .catch(function (error) {
+        console.log("Error_Creating_Post", error);
+      });
   }
 
   return (
     <div>
       <h1>New Post</h1>
       <form onSubmit={(e) => submitPost(e)}>
-        <label>
-          <input type="text" name="artistName" placeholder="Name" />
-        </label>
-        <label>
-          <input type="text" name="artistUserName" placeholder="Username" />
-        </label>
-        {/* <label>
-          <input
-            type="text"
-            name="collaborationRequests"
-            placeholder="Collaboration Requests"
-          />
-        </label> */}
-        <button type="submit"> Submit Post</button>
+        <label>{"Artist Name:"} </label>
+        <input type="text" name="artistName" placeholder="Name" />
+
+        <label>{"My Medium: "} </label>
+        <input type="text" name="medium" placeholder="Medium" />
+
+        <label>{"Collaboration Requests: "} </label>
+        <input
+          type="text"
+          name="collaborationRequests"
+          placeholder="Collaboration Requests"
+        />
+
+        <button> Submit Post</button>
       </form>
     </div>
   );

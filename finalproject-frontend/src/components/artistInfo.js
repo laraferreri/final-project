@@ -4,14 +4,12 @@ import React from "react";
 function artistInfo({ artistData }) {
   return (
     <div className="artistData">
-      <h2>{artistData.collaborationRequests}</h2>
-      {/* <h3>By:{artistName}</h3> */}
-      <h4>
-        <a href={`/user/${artistData.artistUserName}`}>
-          OR {artistData.artistUserName}{" "}
-        </a>
-      </h4>
-      <h5>Collaboration Requests</h5>
+      <a href={`/user/${artistData.artistID}`}>
+        By: {artistData.artistUserName}{" "}
+      </a>
+      OR {artistData.artistUserName}
+      <h2>Artist Medium:{artistData.medium}</h2>
+      <h3>Collaboration Requests</h3>
     </div>
   );
 }

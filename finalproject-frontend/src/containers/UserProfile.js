@@ -25,7 +25,7 @@ function UserProfile() {
   return (
     <div>
       <h1>User Profile</h1>
-      <h2>{"name"} Posts </h2>
+      <h2> Posts </h2>
       {userArtistData.map((artist, i) => (
         <artistInfo artistData={artist} key={i} />
       ))}

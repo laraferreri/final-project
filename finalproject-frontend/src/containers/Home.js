@@ -7,7 +7,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("https://secure-mesa-42232.herokuapp.com/")
+      .get("https://arcane-scrubland-66208.herokuapp.com/ ")
       .then(function (response) {
         if (response.data) {
           setArtistAPIData(response.data);
@@ -22,9 +22,9 @@ function Home() {
 
   return (
     <div>
-      <h1> All Artist </h1>;
-      {artistAPIData.map((collaborationRequests, i) => (
-        <artistInfo artistData={collaborationRequests} key={i} />
+      <h1> All Posts </h1>
+      {artistAPIData.map((artistName, i) => (
+        <artistInfo artistData={artistName} key={i} />
       ))}
     </div>
   );

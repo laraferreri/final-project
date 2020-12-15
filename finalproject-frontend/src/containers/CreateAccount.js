@@ -10,4 +10,4 @@ function CreateAccount({ CreateAccountFunction }) {
   );
 }
 
-export default CreateAccount;
+export default CreateAccountForm;

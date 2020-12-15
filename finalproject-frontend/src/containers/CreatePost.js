@@ -9,10 +9,10 @@ function CreatePost({ userAuthInfo }) {
     const artistName = e.currentTarget.artistName;
     const artistUserName = e.currentTarget.artistUserName;
 
+    //&artistUserName${artistUserName}&
+
     axios
-      .get(
-        `http://localhost:400/create?artistName=${artistName}&artistUserName${artistUserName}&`
-      )
+      .get(`http://localhost:4000/create?artistName=${artistName}`)
       .then(function (response) {
         console.log({ SUCCESS: response });
       })
@@ -37,6 +37,9 @@ function CreatePost({ userAuthInfo }) {
           name="collaborationRequests"
           placeholder="Collaboration Requests"
         />
+
+        <label> {"Contact Information: "} </label>
+        <input type="text" name="conact" placeholder="Contact Information" />
 
         <button> Submit Post</button>
       </form>

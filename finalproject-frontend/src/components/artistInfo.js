@@ -9,7 +9,8 @@ function artistInfo({ artistData }) {
       </a>
       OR {artistData.artistUserName}
       <h2>Artist Medium:{artistData.medium}</h2>
-      <h3>Collaboration Requests</h3>
+      <h3>Collaboration Requests {artistData.collaborationRequests}</h3>
+      <h4>Contact Information: {artistData.contactInfo}</h4>
     </div>
   );
 }

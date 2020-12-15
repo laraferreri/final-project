@@ -10,7 +10,7 @@ function UserProfile() {
 
   useEffect(() => {
     axios
-      .get(`https://localhost:400/posts/${""}`)
+      .get(`https://arcane-scrubland-66208.herokuapp.com/artistI${id}`)
       .then(function (response) {
         if (response.data) {
           setUserArtistData(response.data);

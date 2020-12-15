@@ -8,11 +8,10 @@ function CreatePost({ userAuthInfo }) {
     e.preventDefault();
     const artistName = e.currentTarget.artistName;
     const artistUserName = e.currentTarget.artistUserName;
-    const artistID = userAuthInfo.uid;
 
     axios
       .get(
-        `http://localhost:400/create?artistName=${artistName}&artistId${userAuthInfo.uid}&`
+        `http://localhost:400/create?artistName=${artistName}&artistUserName${artistUserName}&`
       )
       .then(function (response) {
         console.log({ SUCCESS: response });

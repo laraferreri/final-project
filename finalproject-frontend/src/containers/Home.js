@@ -7,7 +7,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("https://arcane-scrubland-66208.herokuapp.com/ ")
+      .get("https://arcane-scrubland-66208.herokuapp.com/all-artists ")
       .then(function (response) {
         if (response.data) {
           setArtistAPIData(response.data);
